@@ -12,7 +12,7 @@ class TicketsDataBase:
                 database="tickets",
                 user="program",
                 password="test",
-                host="postgres",
+                host="10.5.0.2",
                 port="5432"
             )
 

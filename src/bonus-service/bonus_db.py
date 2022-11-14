@@ -11,7 +11,7 @@ class PrivilegesDataBase:
                 database="privileges",
                 user="program",
                 password="test",
-                host="postgres",
+                host="10.5.0.2",
                 port="5432"
             )
 

@@ -13,6 +13,9 @@ services:
       - ./postgres/:/docker-entrypoint-initdb.d/
     ports:
       - "5432:5432"
+    networks:
+      default:
+        ipv4_address: 10.5.0.2
 
   gateway:
     build: src/gateway-service/
@@ -20,10 +23,9 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
-    depends_on:
-      - bonus
-      - flight
-      - ticket
+    networks:
+      default:
+        ipv4_address: 10.5.0.3
 
   bonus:
     build: src/bonus-service/
@@ -31,8 +33,9 @@ services:
     restart: on-failure
     ports:
       - "8050:8050"
-    depends_on:
-      - postgres
+    networks:
+      default:
+        ipv4_address: 10.5.0.4
 
   flight:
     build: src/flight-service/
@@ -40,8 +43,9 @@ services:
     restart: on-failure
     ports:
       - "8060:8060"
-    depends_on:
-      - postgres
+    networks:
+      default:
+        ipv4_address: 10.5.0.5
 
   ticket:
     build: src/ticket-service/
@@ -49,9 +53,18 @@ services:
     restart: on-failure
     ports:
       - "8070:8070"
-    depends_on:
-      - postgres
+    networks:
+      default:
+        ipv4_address: 10.5.0.6
 
 
 volumes:
   db-data:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
