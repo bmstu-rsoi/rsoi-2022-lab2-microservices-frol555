@@ -5,9 +5,9 @@ import requests
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-baseUrlBonus = 'http://10.5.0.4:8050'
-baseUrlFlight = 'http://10.5.0.5:8060'
-baseUrlTickets = 'http://10.5.0.6:8070'
+baseUrlBonus = 'http://bonus:8050'
+baseUrlFlight = 'http://flight:8060'
+baseUrlTickets = 'http://ticket:8070'
 
 
 @app.route('/')
