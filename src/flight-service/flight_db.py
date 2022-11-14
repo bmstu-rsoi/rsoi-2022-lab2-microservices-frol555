@@ -9,9 +9,9 @@ class FlightsDataBase:
             # Establishing a database connection
             self.connection = psycopg2.connect(
                 database="flights",
-                user="postgres",
-                password="postgres",
-                host="10.5.0.2",
+                user="program",
+                password="test",
+                host="postgres",
                 port="5432"
             )
 
